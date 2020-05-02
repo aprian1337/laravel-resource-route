@@ -38,8 +38,9 @@
 					</span>
 				</div>
 
-				<form class="login100-form validate-form">
-					<div class="wrap-input100 validate-input m-b-26" data-validate="Username harus diisi!">
+				<form class="login100-form validate-form" action="login" method="POST">
+                    @csrf
+                    <div class="wrap-input100 validate-input m-b-26" data-validate="Username harus diisi!">
 						<span class="label-input100">Username</span>
 						<input class="input100" type="text" name="username" placeholder="Masukkan username">
 						<span class="focus-input100"></span>
@@ -47,7 +48,7 @@
 
 					<div class="wrap-input100 validate-input m-b-18" data-validate = "Password harus diisi!">
 						<span class="label-input100">Password</span>
-						<input class="input100" type="password" name="pass" placeholder="Masukkan password">
+						<input class="input100" type="password" name="password" placeholder="Masukkan password">
 						<span class="focus-input100"></span>
 					</div>
 

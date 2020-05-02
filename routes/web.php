@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,11 +15,16 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    if(Auth::check()){
+        return view('dashboard');
+    }else{
+        return view('login');
+    }
 });
 
-Route::get('login', function () {
-    return view('login');
-});
-
-Route::get('pembeli', 'ControllerPembeli@index');
+Route::get('login', 'AuthController@index')->name('login');
+Route::post('login', 'AuthController@proses');
+Route::get('dashboard', 'DashboardController@index')->middleware('auth')->name('dashboard');
+Route::get('logout', 'AuthController@logout');
+Route::POST('/customer/insert', 'CustomerController@insert');
+Route::get('customer', 'DashboardController@customer');
