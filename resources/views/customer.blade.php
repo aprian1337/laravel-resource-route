@@ -7,7 +7,8 @@
     <title>Document</title>
     <link rel="stylesheet" type="text/css" href="{{asset('vendor/bootstrap/css/bootstrap.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('vendor/font-awesome/css/font-awesome.min.css')}}">
-    <link rel="stylesheet" href="{{asset('vendor/data-table/DataTables-1.10.20/css/jquery.dataTables.min.css')}}">
+    <link rel="stylesheet" type="text/css"
+        href="{{asset('vendor/data-table/DataTables-1.10.20/css/jquery.dataTables.min.css')}}">
 </head>
 
 <body>
@@ -67,53 +68,77 @@
                 <h1>Table Customer</h1>
             </div>
             <div class="col-md-6">
+
+            </div>
+        </div>
+
+        <div class="row mb-4">
+            <div class="col-6">
+                <div class="input-group">
+
+                    <input type="text" aria-label="First name" placeholder="Masukkan pencarian" class="form-control">
+                    <select name="kategori" class="form-control w-25">
+                        <option selected>Pilih kategori..</option>
+                        <option value="id">ID</option>
+                        <option value="nama">Nama Pembeli</option>
+                        <option value="gender">Jenis Kelamin</option>
+                        <option value="alamat">Alamat</option>
+                        <option value="kota">Kota</option>
+                    </select>
+                    <div class="input-group-prepend">
+                        <button class="btn btn-sm btn-info"><i class="fa fa-search"></i> &nbsp;Cari</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
                 <button type="button" class="btn btn-success btn-sm float-right mt-2" data-toggle="modal"
-                    data-target="#insertModal"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp; Tambah data
-                    baru</button>
+                data-target="#insertModal"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp; Tambah data
+                baru</button>
             </div>
         </div>
-        <div class="row justify-content-center mt-2">
-            <div class="col-md">
-                <table class="table table-striped table-bordered" id="myTable">
-                    <thead>
-                        <tr>
-                            <th scope="col">ID</th>
-                            <th scope="col">Nama Pembeli</th>
-                            <th scope="col">Jenis Kelamin</th>
-                            <th scope="col">Alamat</th>
-                            <th scope="col">Kota</th>
-                            <th scope="col" class="text-center">Terakhir update</th>
-                            <th scope="col" colspan="2" class="text-center">Aksi</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach($pembeli as $data)
-                        <tr>
-                            <td>{{$data->KD_PEMBELI}}</td>
-                            <td>{{$data->NM_PEMBELI}}</td>
-                            <td>{{$data->JENIS_KELAMIN}}</td>
-                            <td>{{$data->ALAMAT}}</td>
-                            <td>{{$data->KOTA}}</td>
-                            <td class="text-center">{{$data->created_at}}</td>
-                            <td>
-                                <div class="text-center">
-                                    <button type="button" class="btn btn-outline-warning btn-sm" data-toggle="modal"
-                                        data-target="#edit-Modal" data-whatever="@edit">Ubah</button>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="text-center">
-                                    <button type="button" class="btn btn-outline-danger btn-sm" data-toggle="modal"
-                                        data-target="#deleteModal" data-whatever="@delete">Hapus</button>
-                                </div>
-                            </td>
-                        </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
+
+        <table id="myTable" class="table table-striped table-bordered display" style="width:100%">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Nama Pembeli</th>
+                    <th scope="col">Jenis Kelamin</th>
+                    <th scope="col">Alamat</th>
+                    <th scope="col">Kota</th>
+                    <th scope="col" class="text-center">Terakhir update</th>
+                    <th scope="col" colspan="2" class="text-center">Aksi</th>
+                    <th style="display: none"></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach($pembeli as $data)
+                <tr>
+                    <td>{{$data->KD_PEMBELI}}</td>
+                    <td>{{$data->NM_PEMBELI}}</td>
+                    <td>{{$data->JENIS_KELAMIN}}</td>
+                    <td>{{$data->ALAMAT}}</td>
+                    <td>{{$data->KOTA}}</td>
+                    <td class="text-center">{{$data->created_at}}</td>
+                    <td>
+                        <div class="text-center">
+                            <button type="button" class="btn btn-outline-warning btn-sm" data-toggle="modal"
+                                data-target="#edit-Modal" data-whatever="@edit">Ubah</button>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="text-center">
+                            <button type="button" class="btn btn-outline-danger btn-sm" data-toggle="modal"
+                                data-target="#deleteModal" data-whatever="@delete">Hapus</button>
+                        </div>
+                    </td>
+                    <td style="display: none;"></td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
+
+
+    </div class="mb-10">
 
     <!-- MODALLLLLLLL -->
 
@@ -234,11 +259,17 @@
     <script src="{{asset('vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
     <script src="{{asset('vendor/bootstrap/js/bootstrap.min.js')}}"></script>
     <script src="{{asset('vendor/bootstrap/js/popper.min.js')}}"></script>
-    <script type="text/javascript" charset="utf8" src="{{asset('vendor/data-table/DataTables-1.10.20/js/jquery.dataTables.min.js')}}"></script>
+    <script src="//code.jquery.com/jquery.js"></script>
+    <script type="text/javascript"
+        src="{{asset('vendor/data-table/DataTables-1.10.20/js/jquery.dataTables.min.js')}}"></script>
+
     <script type="text/javascript">
-       $(document).ready( function(){
-           $('#myTable').DataTable();
-       });
+        $(document).ready(function () {
+            $('#myTable').dataTable({
+                // "lengthChange": false
+            });
+
+        });
     </script>
 
 </body>

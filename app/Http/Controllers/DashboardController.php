@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class DashboardController extends Controller
 {
@@ -12,6 +13,7 @@ class DashboardController extends Controller
 
     public function customer(){
         $pembeli = \App\pembeli::all();
+        // $pembeli = DB::table('pembeli')->paginate(10);
         return view('customer', ['pembeli' => $pembeli]);
     }
 
