@@ -5,10 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="{{asset('vendor/bootstrap/css/bootstrap.min.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('vendor/font-awesome/css/font-awesome.min.css')}}">
-    <link rel="stylesheet" type="text/css"
-        href="{{asset('vendor/data-table/DataTables-1.10.20/css/jquery.dataTables.min.css')}}">
+    <script src="{{asset('/vendor/jquery/jquery-3.4.1.min.js')}}"></script>
+    <script type="text/javascript" charset="utf8"
+        src="{{asset('vendor/data-table/DataTables-1.10.20/js/jquery.dataTables.min.js')}}"></script>
+    <script type="text/javascript" charset="utf8"
+        src="{{asset('vendor/data-table/DataTables-1.10.20/js/dataTables.bootstrap4.min.js')}}"></script>
+    <link rel="stylesheet" href="{{asset('/vendor/bootstrap/css/bootstrap.css')}}">
+    <link rel="stylesheet" href="{{asset('vendor/data-table/DataTables-1.10.20/css/dataTables.bootstrap4.min.css')}}">
+    <script src="{{asset('/vendor/bootstrap/js/popper.min.js')}}" ></script>
+    <script src="{{asset('/vendor/bootstrap/js/bootstrap.min.js')}}"></script>
 </head>
 
 <body>
@@ -65,16 +70,17 @@
         @endif
         <div class="row mt-4">
             <div class="col-md-6">
-                <h1>Table Customer</h1>
+
             </div>
             <div class="col-md-6">
 
             </div>
         </div>
 
-        <div class="row mb-4">
+        <div class="row mb-2">
             <div class="col-6">
-                <div class="input-group">
+
+                <!-- <div class="input-group">
 
                     <input type="text" aria-label="First name" placeholder="Masukkan pencarian" class="form-control">
                     <select name="kategori" class="form-control w-25">
@@ -88,16 +94,17 @@
                     <div class="input-group-prepend">
                         <button class="btn btn-sm btn-info"><i class="fa fa-search"></i> &nbsp;Cari</button>
                     </div>
-                </div>
+                </div> -->
+                <h1>Table Customer</h1>
             </div>
             <div class="col-6">
                 <button type="button" class="btn btn-success btn-sm float-right mt-2" data-toggle="modal"
-                data-target="#insertModal"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp; Tambah data
-                baru</button>
+                    data-target="#insertModal"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp; Tambah data
+                    baru</button>
             </div>
         </div>
 
-        <table id="myTable" class="table table-striped table-bordered display" style="width:100%">
+        <table class="table table-striped table-bordered myTable" style="width:100%">
             <thead>
                 <tr>
                     <th scope="col">ID</th>
@@ -106,7 +113,7 @@
                     <th scope="col">Alamat</th>
                     <th scope="col">Kota</th>
                     <th scope="col" class="text-center">Terakhir update</th>
-                    <th scope="col" colspan="2" class="text-center">Aksi</th>
+                    <th scope="col" class="text-center">Aksi</th>
                     <th style="display: none"></th>
                 </tr>
             </thead>
@@ -123,10 +130,6 @@
                         <div class="text-center">
                             <button type="button" class="btn btn-outline-warning btn-sm" data-toggle="modal"
                                 data-target="#edit-Modal" data-whatever="@edit">Ubah</button>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="text-center">
                             <button type="button" class="btn btn-outline-danger btn-sm" data-toggle="modal"
                                 data-target="#deleteModal" data-whatever="@delete">Hapus</button>
                         </div>
@@ -253,19 +256,10 @@
             </div>
         </div>
     </div>
-
-    <!-- Bootstrap core JavaScript -->
-    <script src="{{asset('vendor/jquery/jquery-3.2.1.min.js')}}"></script>
-    <script src="{{asset('vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-    <script src="{{asset('vendor/bootstrap/js/bootstrap.min.js')}}"></script>
-    <script src="{{asset('vendor/bootstrap/js/popper.min.js')}}"></script>
-    <script src="//code.jquery.com/jquery.js"></script>
-    <script type="text/javascript"
-        src="{{asset('vendor/data-table/DataTables-1.10.20/js/jquery.dataTables.min.js')}}"></script>
-
+    <!-- SCRIPT DATA TABLES -->
     <script type="text/javascript">
         $(document).ready(function () {
-            $('#myTable').dataTable({
+            $('.myTable').dataTable({
                 // "lengthChange": false
             });
 
