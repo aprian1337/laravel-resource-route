@@ -5,15 +5,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <!-- SCRIPT SOURCE -->
     <script src="{{asset('/vendor/jquery/jquery-3.4.1.min.js')}}"></script>
     <script type="text/javascript" charset="utf8"
         src="{{asset('vendor/data-table/DataTables-1.10.20/js/jquery.dataTables.min.js')}}"></script>
     <script type="text/javascript" charset="utf8"
         src="{{asset('vendor/data-table/DataTables-1.10.20/js/dataTables.bootstrap4.min.js')}}"></script>
+    <script src="{{asset('/vendor/bootstrap/js/popper.min.js')}}"></script>
+    <script src="{{asset('/vendor/bootstrap/js/bootstrap.min.js')}}"></script>
+
+    <!-- CSS SOURCE -->
     <link rel="stylesheet" href="{{asset('/vendor/bootstrap/css/bootstrap.css')}}">
     <link rel="stylesheet" href="{{asset('vendor/data-table/DataTables-1.10.20/css/dataTables.bootstrap4.min.css')}}">
-    <script src="{{asset('/vendor/bootstrap/js/popper.min.js')}}" ></script>
-    <script src="{{asset('/vendor/bootstrap/js/bootstrap.min.js')}}"></script>
+    <link rel="stylesheet" href="{{asset('vendor/font-awesome/css/all.css')}}">
 </head>
 
 <body>
@@ -59,52 +64,29 @@
     </nav>
 
     <!-- Page Content -->
-    <div class="container">
-        @if(session('insertData'))
+    <div class="container mb-5">
+        @if(session('success'))
         <div class="alert alert-success alert-dismissible fade show mt-4" role="alert">
-            <strong>Data berhasil dimasukkan!</strong> Silakan anda cek tabel di bawah ini.
+            {!!@session('success')!!}
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
         </div>
         @endif
-        <div class="row mt-4">
-            <div class="col-md-6">
 
-            </div>
-            <div class="col-md-6">
-
-            </div>
-        </div>
-
+        <div class="mt-4"></div>
         <div class="row mb-2">
             <div class="col-6">
-
-                <!-- <div class="input-group">
-
-                    <input type="text" aria-label="First name" placeholder="Masukkan pencarian" class="form-control">
-                    <select name="kategori" class="form-control w-25">
-                        <option selected>Pilih kategori..</option>
-                        <option value="id">ID</option>
-                        <option value="nama">Nama Pembeli</option>
-                        <option value="gender">Jenis Kelamin</option>
-                        <option value="alamat">Alamat</option>
-                        <option value="kota">Kota</option>
-                    </select>
-                    <div class="input-group-prepend">
-                        <button class="btn btn-sm btn-info"><i class="fa fa-search"></i> &nbsp;Cari</button>
-                    </div>
-                </div> -->
                 <h1>Table Customer</h1>
             </div>
             <div class="col-6">
-                <button type="button" class="btn btn-success btn-sm float-right mt-2" data-toggle="modal"
+                <button type="button" class="btn btn-info btn-sm float-right mt-2" data-toggle="modal"
                     data-target="#insertModal"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp; Tambah data
                     baru</button>
             </div>
         </div>
 
-        <table class="table table-striped table-bordered myTable" style="width:100%">
+        <table class="table table-striped table-bordered myTable">
             <thead>
                 <tr>
                     <th scope="col">ID</th>
@@ -127,11 +109,13 @@
                     <td>{{$data->KOTA}}</td>
                     <td class="text-center">{{$data->created_at}}</td>
                     <td>
-                        <div class="text-center">
-                            <button type="button" class="btn btn-outline-warning btn-sm" data-toggle="modal"
-                                data-target="#edit-Modal" data-whatever="@edit">Ubah</button>
-                            <button type="button" class="btn btn-outline-danger btn-sm" data-toggle="modal"
-                                data-target="#deleteModal" data-whatever="@delete">Hapus</button>
+                        <div class="text-center d-inline-block">
+                            <button type="button" class="btn btn-warning btn-sm edit mb-2" data-toggle="modal"
+                                data-target="#editModal" data-whatever="@edit" href="#"><i
+                                    class="far fa-edit"></i>&nbsp; Ubah</button>
+                            <button type="button" class="btn btn-danger btn-sm delete" data-toggle="modal"
+                                data-target="#deleteModal" data-whatever="@delete" href="#"><i
+                                    class="far fa-trash-alt"></i>&nbsp; Hapus</button>
                         </div>
                     </td>
                     <td style="display: none;"></td>
@@ -139,9 +123,7 @@
                 @endforeach
             </tbody>
         </table>
-
-
-    </div class="mb-10">
+    </div>
 
     <!-- MODALLLLLLLL -->
 
@@ -158,7 +140,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form action="customer/insert" method="POST">
+                    <form action="customer" method="POST">
                         @csrf
                         <div class="form-group">
                             <label for="recipient-name" class="col-form-label">Nama Pembeli :</label>
@@ -173,27 +155,29 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="message-text" class="col-form-label">Kota :</label>
-                            <input type="text" name="KOTA" class="form-control">
-                        </div>
-                        <div class="form-group">
                             <label for="message-text" class="col-form-label">Alamat :</label>
                             <textarea type="text" name="ALAMAT" class="form-control" rows="2"></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary">Tambah data</button>
-                    </form>
+                        <div class="form-group">
+                            <label for="message-text" class="col-form-label">Kota :</label>
+                            <input type="text" name="KOTA" class="form-control">
+                        </div>
+
+                        <!-- <button type="submit" class="btn btn-primary">Tambah data</button> -->
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-                    <button type="button" class="btn btn-primary">Tambah data</button>
+                    <button type="submit" class="btn btn-primary">Tambah data</button>
                 </div>
+                </form>
             </div>
         </div>
     </div>
 
     <!-- EDIT MODAL -->
 
-    <div class="modal fade" id="edit-Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
@@ -204,32 +188,36 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form>
+                    <form action="/customer" method="POST" id="editForm">
+                        @csrf
+                        @method('put')
+
                         <div class="form-group">
                             <label for="recipient-name" class="col-form-label">Nama Pembeli :</label>
-                            <input type="text" class="form-control" name="NM_PEMBELI" id="modal-input-name">
+                            <input type="text" class="form-control" name="NM_PEMBELI" id="modal-input-nama">
                         </div>
                         <div class="form-group">
                             <label for="message-text" class="col-form-label">Jenis Kelamin :</label>
-                            <select name="JENIS_KELAMIN" class="form-control">
+                            <select name="JENIS_KELAMIN" class="form-control" id="modal-input-gender">
                                 <option value="Laki-Laki">Laki-Laki</option>
                                 <option value="Perempuan">Perempuan</option>
                             </select>
                         </div>
                         <div class="form-group">
                             <label for="message-text" class="col-form-label">Alamat :</label>
-                            <input type="text" name="ALAMAT" class="form-control">
+                            <input type="text" name="ALAMAT" class="form-control" id="modal-input-alamat">
                         </div>
                         <div class="form-group">
                             <label for="message-text" class="col-form-label">Kota :</label>
-                            <input type="text" name="KOTA" class="form-control">
+                            <input type="text" name="KOTA" class="form-control" id="modal-input-kota">
                         </div>
-                    </form>
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-                    <button type="button" class="btn btn-primary">Ubah sekarang</button>
+                    <button type="submit" class="btn btn-primary">Ubah sekarang</button>
                 </div>
+                </form>
             </div>
         </div>
     </div>
@@ -246,24 +234,62 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body">
-                    Apakah benar anda ingin menghapus data ini?
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-                    <button type="button" class="btn btn-danger">Ya, hapus</button>
-                </div>
+                <form action="/customer" method="POST" id="deleteForm">
+                    @csrf
+                    @method('delete')
+                    <div class="modal-body">
+
+                        Apakah benar anda ingin menghapus data ini?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                        <button type="submit" class="btn btn-danger">Ya, hapus</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
+
+
     <!-- SCRIPT DATA TABLES -->
     <script type="text/javascript">
         $(document).ready(function () {
-            $('.myTable').dataTable({
-                // "lengthChange": false
+            var table = $('.myTable').DataTable();
+
+            // EDIT DATA
+            table.on('click', '.edit', function () {
+                $tr = $(this).closest('tr');
+                if ($($tr).hasClass('child')) {
+                    $tr = $tr.prev('.parent');
+                }
+
+                var data = table.row($tr).data();
+                console.log(data);
+
+                $('#modal-input-nama').val(data[1]);
+                $('#modal-input-gender').val(data[2]);
+                $('#modal-input-alamat').val(data[3]);
+                $('#modal-input-kota').val(data[4]);
+
+                $('#editForm').attr('action', '/customer/' + data[0]);
+                $('#editModal').modal('show');
             });
 
+            // DELETE DATA
+            table.on('click', '.delete', function () {
+                $tr = $(this).closest('tr');
+                if ($($tr).hasClass('child')) {
+                    $tr = $tr.prev('.parent');
+                }
+
+                var data = table.row($tr).data();
+                console.log(data);
+
+                $('#deleteForm').attr('action', '/employee/' + data[0]);
+                $('#deleteModal').modal('show');
+            });
         });
+
     </script>
 
 </body>

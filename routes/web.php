@@ -22,9 +22,14 @@ Route::get('/', function () {
     }
 });
 
+//AUTH
 Route::get('login', 'AuthController@index')->name('login');
 Route::post('login', 'AuthController@proses');
-Route::get('dashboard', 'DashboardController@index')->middleware('auth')->name('dashboard');
 Route::get('logout', 'AuthController@logout');
-Route::POST('/customer/insert', 'CustomerController@insert');
-Route::get('customer', 'DashboardController@customer');
+
+//DASHBOARD
+Route::get('dashboard', 'DashboardController@index')->middleware('auth')->name('dashboard');
+
+// CUSTOMER
+
+Route::resource('customer', 'CustomerController');
