@@ -33,3 +33,6 @@ Route::get('dashboard', 'DashboardController@index')->middleware('auth')->name('
 // CUSTOMER
 
 Route::resource('customer', 'CustomerController')->middleware('auth');
+Route::resource('product', 'ProductController')->middleware('auth');
+Route::resource('transaction', 'TransactionController')->middleware('auth');
+

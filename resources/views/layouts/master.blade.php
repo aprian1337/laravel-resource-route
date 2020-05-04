@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>@yield('type') | Akurapopo's</title>
 
     <!-- SCRIPT SOURCE -->
     <script src="{{asset('/vendor/jquery/jquery-3.4.1.min.js')}}"></script>
@@ -26,7 +26,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
         <div class="container">
-            <a class="navbar-brand" href="#">Akurapopo's</a>
+            <a class="navbar-brand" href="/">Akurapopo's</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
                 aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -35,7 +35,7 @@
                 <ul class="navbar-nav ml-auto">
 
                     <li class="nav-item">
-                        <a class="nav-link @yield('home-active')" href="/">Home
+                        <a class="nav-link @yield('home-active')" href="/dashboard">Dashboard
                             <span class="sr-only">(current)</span>
                         </a>
                     </li>
@@ -79,7 +79,7 @@
         <div class="mt-4"></div>
         <div class="row mb-2">
             <div class="col-6">
-                <h1>Table @yield('header-tabel')</h1>
+                <h1>Table @yield('type')</h1>
             </div>
             <div class="col-6">
                 <button type="button" class="btn btn-info btn-sm float-right mt-2" data-toggle="modal"
@@ -108,37 +108,17 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form action="customer" method="POST">
+                    <form action="@yield('url')" method="POST">
                         @csrf
-                        <div class="form-group">
-                            <label for="recipient-name" class="col-form-label">Nama Pembeli :</label>
-                            <input type="text" class="form-control" name="nm_pembeli" value="">
-                        </div>
-                        <div class="form-group">
-                            <label for="message-text" class="col-form-label">Jenis Kelamin :</label>
-                            <select name="jenis_kelamin" class="form-control">
-                                <option selected>Pilih..</option>
-                                <option value="L">Laki-Laki</option>
-                                <option value="P">Perempuan</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="message-text" class="col-form-label">Alamat :</label>
-                            <textarea type="text" name="alamat" class="form-control" rows="2"></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label for="message-text" class="col-form-label">Kota :</label>
-                            <input type="text" name="kota" class="form-control">
-                        </div>
-
-                        <!-- <button type="submit" class="btn btn-primary">Tambah data</button> -->
-
+                        @yield('modalForm')
                 </div>
+
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
                     <button type="submit" class="btn btn-primary">Tambah data</button>
                 </div>
-                </form>
+            </form>
+
             </div>
         </div>
     </div>
@@ -156,36 +136,20 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form action="/customer" method="POST" id="editForm">
+
+                    <form action="@yield('url')" method="POST" id="editForm">
                         @csrf
                         @method('put')
 
-                        <div class="form-group">
-                            <label for="recipient-name" class="col-form-label">Nama Pembeli :</label>
-                            <input type="text" class="form-control" name="nm_pembeli" id="modal-input-nama">
-                        </div>
-                        <div class="form-group">
-                            <label for="message-text" class="col-form-label">Jenis Kelamin :</label>
-                            <select name="jenis_kelamin" class="form-control" id="modal-input-gender">
-                                <option value="L">Laki-Laki</option>
-                                <option value="P">Perempuan</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="message-text" class="col-form-label">Alamat :</label>
-                            <input type="text" name="alamat" class="form-control" id="modal-input-alamat">
-                        </div>
-                        <div class="form-group">
-                            <label for="message-text" class="col-form-label">Kota :</label>
-                            <input type="text" name="kota" class="form-control" id="modal-input-kota">
-                        </div>
-
+                        @yield('modalForm')
                 </div>
+
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
                     <button type="submit" class="btn btn-primary">Ubah sekarang</button>
                 </div>
-                </form>
+            </form>
+
             </div>
         </div>
     </div>
@@ -203,7 +167,7 @@
                     </button>
                 </div>
 
-                <form action="/customer" method="POST" id="deleteForm">
+                <form action="@yield('url')" method="POST" id="deleteForm">
                     <div class="modal-body">
                         @csrf
                         @method('delete')
@@ -220,47 +184,7 @@
     </div>
 
 
-    <!-- SCRIPT DATA TABLES -->
-    <script type="text/javascript">
-        $(document).ready(function () {
-            var table = $('.myTable').DataTable();
-            // EDIT DATA
-            table.on('click', '.edit', function () {
-                $tr = $(this).closest('tr');
-                if ($($tr).hasClass('child')) {
-                    $tr = $tr.prev('.parent');
-                }
-
-                var data = table.row($tr).data();
-                console.log(data);
-
-                $('#modal-input-nama').val(data[1]);
-                $('#modal-input-gender').val(data[2]);
-                $('#modal-input-alamat').val(data[3]);
-                $('#modal-input-kota').val(data[4]);
-
-                $('#editForm').attr('action', '/customer/' + data[0]);
-                $('#editModal').modal('show');
-            });
-
-            // DELETE DATA
-            table.on('click', '.delete', function () {
-                $tr = $(this).closest('tr');
-                if ($($tr).hasClass('child')) {
-                    $tr = $tr.prev('.parent');
-                }
-
-                var data = table.row($tr).data();
-                console.log(data);
-
-                $('#deleteForm').attr('action', '/customer/' + data[0]);
-                $('#deleteModal').modal('show');
-            });
-
-
-        });
-
-    </script>
+    @yield('datatables')
 
 </body>
 

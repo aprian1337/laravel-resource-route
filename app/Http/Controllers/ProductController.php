@@ -1,10 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-use DB;
+use \App\barang;
 use Illuminate\Http\Request;
 
-class CustomerController extends Controller
+class ProductController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,8 +13,8 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        $pembeli = \App\pembeli::all();
-        return view('customer', ['pembeli' => $pembeli]);
+        $product = barang::all();
+        return view('product')->with('product', $product);
     }
 
     /**
@@ -35,8 +35,8 @@ class CustomerController extends Controller
      */
     public function store(Request $request)
     {
-        \App\pembeli::create($request->all());
-        return \redirect('customer')->with('success','<strong>Data berhasil dimasukkan!</strong> Silakan anda cek data pada tabel di bawah ini.');
+        $product = barang::create($request->all());
+        return \redirect('product')->with('success','<strong>Data berhasil dimasukkan!</strong> Silakan anda cek data pada tabel di bawah ini.');
     }
 
     /**
@@ -47,7 +47,7 @@ class CustomerController extends Controller
      */
     public function show($id)
     {
-
+        //
     }
 
     /**
@@ -70,9 +70,7 @@ class CustomerController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $pembeli = \App\pembeli::find($id);
-        $pembeli->update($request->all());
-        return \redirect('customer')->with('success','<strong>Data berhasil diubah!</strong> Silakan anda cek data pada tabel di bawah ini.');
+        //
     }
 
     /**
@@ -83,8 +81,6 @@ class CustomerController extends Controller
      */
     public function destroy($id)
     {
-        $pembeli = \App\pembeli::find($id);
-        $pembeli->delete($pembeli);
-        return \redirect('customer')->with('success','<strong>Data berhasil dihapus!</strong> Silakan anda cek data pada tabel di bawah ini.');
+        //
     }
 }
