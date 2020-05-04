@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 04, 2020 at 04:19 PM
+-- Generation Time: May 04, 2020 at 04:32 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.2
 
@@ -29,12 +29,12 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `barang` (
-  `KD_BRG` int(10) UNSIGNED NOT NULL,
-  `NM_BRG` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `MERK` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `TYPE` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `HARGA` varchar(15) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `STOK` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `kd_brg` int(10) UNSIGNED NOT NULL,
+  `nm_brg` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `merk` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `type` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `harga` varchar(15) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `stok` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -84,11 +84,11 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 --
 
 CREATE TABLE `pembeli` (
-  `KD_PEMBELI` int(10) UNSIGNED NOT NULL,
-  `NM_PEMBELI` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `JENIS_KELAMIN` varchar(2) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `ALAMAT` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `KOTA` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `kd_pembeli` int(10) UNSIGNED NOT NULL,
+  `nm_pembeli` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `jenis_kelamin` varchar(2) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `alamat` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `kota` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -100,9 +100,9 @@ CREATE TABLE `pembeli` (
 --
 
 CREATE TABLE `transaksi` (
-  `KD_TRX` int(10) UNSIGNED NOT NULL,
-  `KD_BRG` int(10) UNSIGNED NOT NULL,
-  `KD_PEMBELI` int(10) UNSIGNED NOT NULL,
+  `kd_trx` int(10) UNSIGNED NOT NULL,
+  `kd_brg` int(10) UNSIGNED NOT NULL,
+  `kd_pembeli` int(10) UNSIGNED NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -130,7 +130,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `username`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'admin', 'admin', 'admin@admin.com', NULL, '$2y$10$KlFod6A3TFN5aTr5BaQkpOoK9To6RrZkq3WFNoHyT1QmgPVMt98e.', 'Om0pi9cXVS33p9SXmYaYO4oklEJSMoWQSyXAt4llyWVUtMKDHNrGN1Fcdfsb', '2020-05-04 14:15:08', '2020-05-04 14:19:07');
+(1, 'admin', 'admin', 'admin@admin.com', NULL, '$2y$10$hm39YLa.oIyuGFYfWEqKc.3sBzrm./p7O1wD.zdsWBAl6LrMbtW2.', 'j1dKnNNQ6FqDCNRaXMBGbXbnjG5r65mIeagPFWn5WXhuKHO3Iuc0ziLyy8mr', '2020-05-04 14:28:47', '2020-05-04 14:28:47');
 
 --
 -- Indexes for dumped tables
@@ -140,7 +140,7 @@ INSERT INTO `users` (`id`, `name`, `username`, `email`, `email_verified_at`, `pa
 -- Indexes for table `barang`
 --
 ALTER TABLE `barang`
-  ADD PRIMARY KEY (`KD_BRG`);
+  ADD PRIMARY KEY (`kd_brg`);
 
 --
 -- Indexes for table `failed_jobs`
@@ -158,15 +158,15 @@ ALTER TABLE `migrations`
 -- Indexes for table `pembeli`
 --
 ALTER TABLE `pembeli`
-  ADD PRIMARY KEY (`KD_PEMBELI`);
+  ADD PRIMARY KEY (`kd_pembeli`);
 
 --
 -- Indexes for table `transaksi`
 --
 ALTER TABLE `transaksi`
-  ADD PRIMARY KEY (`KD_TRX`),
-  ADD KEY `transaksi_kd_brg_foreign` (`KD_BRG`),
-  ADD KEY `transaksi_kd_pembeli_foreign` (`KD_PEMBELI`);
+  ADD PRIMARY KEY (`kd_trx`),
+  ADD KEY `transaksi_kd_brg_foreign` (`kd_brg`),
+  ADD KEY `transaksi_kd_pembeli_foreign` (`kd_pembeli`);
 
 --
 -- Indexes for table `users`
@@ -184,7 +184,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `barang`
 --
 ALTER TABLE `barang`
-  MODIFY `KD_BRG` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `kd_brg` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -202,13 +202,13 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `pembeli`
 --
 ALTER TABLE `pembeli`
-  MODIFY `KD_PEMBELI` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `kd_pembeli` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `transaksi`
 --
 ALTER TABLE `transaksi`
-  MODIFY `KD_TRX` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `kd_trx` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -224,8 +224,8 @@ ALTER TABLE `users`
 -- Constraints for table `transaksi`
 --
 ALTER TABLE `transaksi`
-  ADD CONSTRAINT `transaksi_kd_brg_foreign` FOREIGN KEY (`KD_BRG`) REFERENCES `barang` (`KD_BRG`) ON DELETE CASCADE,
-  ADD CONSTRAINT `transaksi_kd_pembeli_foreign` FOREIGN KEY (`KD_PEMBELI`) REFERENCES `pembeli` (`KD_PEMBELI`) ON DELETE CASCADE;
+  ADD CONSTRAINT `transaksi_kd_brg_foreign` FOREIGN KEY (`kd_brg`) REFERENCES `barang` (`kd_brg`) ON DELETE CASCADE,
+  ADD CONSTRAINT `transaksi_kd_pembeli_foreign` FOREIGN KEY (`kd_pembeli`) REFERENCES `pembeli` (`kd_pembeli`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

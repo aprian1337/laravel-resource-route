@@ -32,4 +32,4 @@ Route::get('dashboard', 'DashboardController@index')->middleware('auth')->name('
 
 // CUSTOMER
 
-Route::resource('customer', 'CustomerController');
+Route::resource('customer', 'CustomerController')->middleware('auth');
