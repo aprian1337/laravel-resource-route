@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 04, 2020 at 12:16 PM
+-- Generation Time: May 04, 2020 at 04:19 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.2
 
@@ -29,14 +29,15 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `barang` (
-  `KD_BRG` int(11) NOT NULL,
-  `NM_BRG` varchar(30) DEFAULT NULL,
-  `MERK` varchar(20) DEFAULT NULL,
-  `TYPE` varchar(20) DEFAULT NULL,
-  `HARGA` varchar(15) DEFAULT NULL,
-  `STOK` varchar(10) DEFAULT NULL,
-  `update_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `KD_BRG` int(10) UNSIGNED NOT NULL,
+  `NM_BRG` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `MERK` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `TYPE` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `HARGA` varchar(15) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `STOK` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -70,10 +71,11 @@ CREATE TABLE `migrations` (
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
-(17, '2014_10_12_100000_create_password_resets_table', 2),
-(18, '2014_10_12_000000_create_users_table', 3),
-(19, '2019_08_19_000000_create_failed_jobs_table', 3),
-(20, '2020_05_02_035356_user', 3);
+(1, '2014_10_12_000000_create_users_table', 1),
+(2, '2019_08_19_000000_create_failed_jobs_table', 1),
+(3, '2020_05_04_000001_pembeli', 1),
+(4, '2020_05_04_000002_barang', 1),
+(5, '2020_05_04_000003_transaksi', 1);
 
 -- --------------------------------------------------------
 
@@ -82,27 +84,14 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 --
 
 CREATE TABLE `pembeli` (
-  `KD_PEMBELI` int(11) NOT NULL,
-  `NM_PEMBELI` varchar(1024) DEFAULT NULL,
-  `JENIS_KELAMIN` varchar(1024) DEFAULT NULL,
-  `ALAMAT` text DEFAULT NULL,
-  `KOTA` varchar(20) DEFAULT NULL,
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `pembeli`
---
-
-INSERT INTO `pembeli` (`KD_PEMBELI`, `NM_PEMBELI`, `JENIS_KELAMIN`, `ALAMAT`, `KOTA`, `updated_at`, `created_at`) VALUES
-(1, 'Febiutoyo Alifsyahwinw', 'Laki-Laki', 'Jl. P Sudirman, Pagelaran', 'Malang', '2020-05-04 09:58:50', '2020-05-03 06:22:49'),
-(2, 'Dwiky Aprian Ashari', 'Laki-Laki', 'Jl. H. Ikhsan No.77 Kec. Siliragung, Kab. Banyuwangi', 'Banyuwangi', '2020-05-03 07:51:05', '2020-05-03 07:51:05'),
-(3, 'Putri Sari Asih', 'Perempuan', 'K ASPkapoksa', 'Tangerang', '2020-05-03 19:36:35', '2020-05-03 19:36:35'),
-(4, 'Lordaw', 'Perempuan', 'PLSpa', 'askdoa', '2020-05-04 08:35:47', '2020-05-04 08:35:47'),
-(5, 'asaojoi', 'Laki-Laki', 'iojdoia', 'jio', '2020-05-04 08:40:37', '2020-05-04 08:40:37'),
-(6, 'MOIDjsaodj', 'Laki-Laki', 'opks', 'pokopd', '2020-05-04 08:51:23', '2020-05-04 08:51:17'),
-(7, 'jspadpsakosa', 'Perempuan', 'sakodapokd', 'opadksa', '2020-05-04 09:05:05', '2020-05-04 09:05:05');
+  `KD_PEMBELI` int(10) UNSIGNED NOT NULL,
+  `NM_PEMBELI` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `JENIS_KELAMIN` varchar(2) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `ALAMAT` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `KOTA` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -111,23 +100,9 @@ INSERT INTO `pembeli` (`KD_PEMBELI`, `NM_PEMBELI`, `JENIS_KELAMIN`, `ALAMAT`, `K
 --
 
 CREATE TABLE `transaksi` (
-  `KD_TRX` int(11) NOT NULL,
-  `KD_BRG` int(11) DEFAULT NULL,
-  `KD_PEMBELI` int(11) DEFAULT NULL,
-  `TGL_BELI` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `user`
---
-
-CREATE TABLE `user` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `nama` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `username` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `KD_TRX` int(10) UNSIGNED NOT NULL,
+  `KD_BRG` int(10) UNSIGNED NOT NULL,
+  `KD_PEMBELI` int(10) UNSIGNED NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -155,7 +130,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `username`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'admin', 'admin', 'admin@aww.com', NULL, '$2y$10$.c3K8EGLzQTYk0FcOEdrxePBYegmShiEHWtyj0XY2MZUqHK5PuESe', NULL, '2020-05-01 23:36:23', '2020-05-01 23:36:23');
+(1, 'admin', 'admin', 'admin@admin.com', NULL, '$2y$10$KlFod6A3TFN5aTr5BaQkpOoK9To6RrZkq3WFNoHyT1QmgPVMt98e.', 'Om0pi9cXVS33p9SXmYaYO4oklEJSMoWQSyXAt4llyWVUtMKDHNrGN1Fcdfsb', '2020-05-04 14:15:08', '2020-05-04 14:19:07');
 
 --
 -- Indexes for dumped tables
@@ -190,14 +165,8 @@ ALTER TABLE `pembeli`
 --
 ALTER TABLE `transaksi`
   ADD PRIMARY KEY (`KD_TRX`),
-  ADD KEY `FK_RELATIONSHIP_1` (`KD_PEMBELI`),
-  ADD KEY `FK_RELATIONSHIP_2` (`KD_BRG`);
-
---
--- Indexes for table `user`
---
-ALTER TABLE `user`
-  ADD PRIMARY KEY (`id`);
+  ADD KEY `transaksi_kd_brg_foreign` (`KD_BRG`),
+  ADD KEY `transaksi_kd_pembeli_foreign` (`KD_PEMBELI`);
 
 --
 -- Indexes for table `users`
@@ -215,7 +184,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `barang`
 --
 ALTER TABLE `barang`
-  MODIFY `KD_BRG` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `KD_BRG` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -227,25 +196,19 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `pembeli`
 --
 ALTER TABLE `pembeli`
-  MODIFY `KD_PEMBELI` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `KD_PEMBELI` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `transaksi`
 --
 ALTER TABLE `transaksi`
-  MODIFY `KD_TRX` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `user`
---
-ALTER TABLE `user`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `KD_TRX` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -261,8 +224,8 @@ ALTER TABLE `users`
 -- Constraints for table `transaksi`
 --
 ALTER TABLE `transaksi`
-  ADD CONSTRAINT `FK_RELATIONSHIP_1` FOREIGN KEY (`KD_PEMBELI`) REFERENCES `pembeli` (`KD_PEMBELI`),
-  ADD CONSTRAINT `FK_RELATIONSHIP_2` FOREIGN KEY (`KD_BRG`) REFERENCES `barang` (`KD_BRG`);
+  ADD CONSTRAINT `transaksi_kd_brg_foreign` FOREIGN KEY (`KD_BRG`) REFERENCES `barang` (`KD_BRG`) ON DELETE CASCADE,
+  ADD CONSTRAINT `transaksi_kd_pembeli_foreign` FOREIGN KEY (`KD_PEMBELI`) REFERENCES `pembeli` (`KD_PEMBELI`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
