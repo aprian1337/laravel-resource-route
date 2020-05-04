@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 02, 2020 at 10:04 PM
+-- Generation Time: May 04, 2020 at 12:16 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.2
 
@@ -96,18 +96,13 @@ CREATE TABLE `pembeli` (
 --
 
 INSERT INTO `pembeli` (`KD_PEMBELI`, `NM_PEMBELI`, `JENIS_KELAMIN`, `ALAMAT`, `KOTA`, `updated_at`, `created_at`) VALUES
-(1, 'Dwiky', 'Laki-Laki', 'OIJoisajdiojsaioda', 'Malang', '2020-05-02 08:27:41', '2020-05-02 08:27:41'),
-(2, 'Dwiky', 'Laki-Laki', 'OIJoisajdiojsaioda', 'Malang', '2020-05-02 08:28:07', '2020-05-02 08:28:07'),
-(3, 'pokpo', 'Perempuan', 'opdaks', 'odsak', '2020-05-02 08:29:03', '2020-05-02 08:29:03'),
-(4, 'mkmlkklmolij', 'Perempuan', 'okadsdasd', 'opkdoaspad', '2020-05-02 08:44:16', '2020-05-02 08:44:16'),
-(5, 'dkopqkwpodkqpok', 'Perempuan', 'kdposa', 'kopkdas', '2020-05-02 08:45:29', '2020-05-02 08:45:29'),
-(6, 'dsokpqwkdo', 'Perempuan', 'o;pksaoda', 'kpodakssak;odl', '2020-05-02 08:46:26', '2020-05-02 08:46:26'),
-(7, 'dsokpqwkdo', 'Perempuan', 'o;pksaoda', 'kpodakssak;odl', '2020-05-02 08:47:03', '2020-05-02 08:47:03'),
-(8, 'dsokpqwkdo', 'Perempuan', 'o;pksaoda', 'kpodakssak;odl', '2020-05-02 08:48:26', '2020-05-02 08:48:26'),
-(9, 'dpaskdpoaksdopkpok', 'Perempuan', 'l,;asdm;das', 'sdakopo', '2020-05-02 10:15:27', '2020-05-02 10:15:27'),
-(10, 'dsoakdposadpk', 'Perempuan', 'okpodaskpdoas', 'kpoksapdp', '2020-05-02 10:15:37', '2020-05-02 10:15:37'),
-(11, 'dskapdokaspok', 'Laki-Laki', 'opkop', 'dakspokaopk', '2020-05-02 10:15:49', '2020-05-02 10:15:49'),
-(12, 'ebikun', 'Perempuan', 'iya', 'bwi', '2020-05-02 12:57:09', '2020-05-02 12:57:09');
+(1, 'Febiutoyo Alifsyahwinw', 'Laki-Laki', 'Jl. P Sudirman, Pagelaran', 'Malang', '2020-05-04 09:58:50', '2020-05-03 06:22:49'),
+(2, 'Dwiky Aprian Ashari', 'Laki-Laki', 'Jl. H. Ikhsan No.77 Kec. Siliragung, Kab. Banyuwangi', 'Banyuwangi', '2020-05-03 07:51:05', '2020-05-03 07:51:05'),
+(3, 'Putri Sari Asih', 'Perempuan', 'K ASPkapoksa', 'Tangerang', '2020-05-03 19:36:35', '2020-05-03 19:36:35'),
+(4, 'Lordaw', 'Perempuan', 'PLSpa', 'askdoa', '2020-05-04 08:35:47', '2020-05-04 08:35:47'),
+(5, 'asaojoi', 'Laki-Laki', 'iojdoia', 'jio', '2020-05-04 08:40:37', '2020-05-04 08:40:37'),
+(6, 'MOIDjsaodj', 'Laki-Laki', 'opks', 'pokopd', '2020-05-04 08:51:23', '2020-05-04 08:51:17'),
+(7, 'jspadpsakosa', 'Perempuan', 'sakodapokd', 'opadksa', '2020-05-04 09:05:05', '2020-05-04 09:05:05');
 
 -- --------------------------------------------------------
 
@@ -238,7 +233,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `pembeli`
 --
 ALTER TABLE `pembeli`
-  MODIFY `KD_PEMBELI` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `KD_PEMBELI` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `transaksi`
