@@ -96,7 +96,6 @@
                     <th scope="col">Kota</th>
                     <th scope="col" class="text-center">Terakhir update</th>
                     <th scope="col" class="text-center">Aksi</th>
-                    <th style="display: none"></th>
                 </tr>
             </thead>
             <tbody>
@@ -109,8 +108,8 @@
                     <td>{{$data->KOTA}}</td>
                     <td class="text-center">{{$data->created_at}}</td>
                     <td>
-                        <div class="text-center d-inline-block">
-                            <button type="button" class="btn btn-warning btn-sm edit mb-2" data-toggle="modal"
+                        <div class="text-center">
+                            <button type="button" class="btn btn-warning btn-sm edit" data-toggle="modal"
                                 data-target="#editModal" data-whatever="@edit" href="#"><i
                                     class="far fa-edit"></i>&nbsp; Ubah</button>
                             <button type="button" class="btn btn-danger btn-sm delete" data-toggle="modal"
@@ -118,7 +117,6 @@
                                     class="far fa-trash-alt"></i>&nbsp; Hapus</button>
                         </div>
                     </td>
-                    <td style="display: none;"></td>
                 </tr>
                 @endforeach
             </tbody>
@@ -223,6 +221,32 @@
     </div>
 
     <!-- DELETE MODAL -->
+    <!--
+    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ubah data</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="/customer" method="POST" id="deleteForm">
+                        @csrf
+                        @method('delete')
+                        <p>Yakin ingin menghapus data ini?</p>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                    <button type="submit" class="btn btn-danger">Ya, hapus</button>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div> -->
 
     <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
         aria-hidden="true">
@@ -234,18 +258,19 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form action="/customer" method="POST" id="deleteForm">
-                    @csrf
-                    @method('delete')
-                    <div class="modal-body">
 
-                        Apakah benar anda ingin menghapus data ini?
+                <form action="/customer" method="POST" id="deleteForm">
+                    <div class="modal-body">
+                        @csrf
+                        @method('delete')
+                        <p>Apakah benar anda ingin menghapus data ini?</p>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
                         <button type="submit" class="btn btn-danger">Ya, hapus</button>
                     </div>
                 </form>
+
             </div>
         </div>
     </div>
@@ -285,9 +310,11 @@
                 var data = table.row($tr).data();
                 console.log(data);
 
-                $('#deleteForm').attr('action', '/employee/' + data[0]);
+                $('#deleteForm').attr('action', '/customer/' + data[0]);
                 $('#deleteModal').modal('show');
             });
+
+
         });
 
     </script>

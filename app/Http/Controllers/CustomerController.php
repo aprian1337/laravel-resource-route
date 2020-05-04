@@ -85,6 +85,6 @@ class CustomerController extends Controller
     {
         $pembeli = \App\pembeli::find($id);
         $pembeli->delete($pembeli);
-        return \redirect('customer')->with('success','<strong>Data berhasil diubah!</strong> Silakan anda cek data pada tabel di bawah ini.');
+        return \redirect('customer')->with('success','<strong>Data berhasil dihapus !</strong> Silakan anda cek data pada tabel di bawah ini.');
     }
 }
