@@ -112,19 +112,18 @@
  <footer class="footer-distributed">
 
 			<div class="footer-left">
-				<h3>Aku<span>Rapopo</span></h3>
+				<h3>Aku<span>Rapopo's</span></h3>
 
-                <p class="footer-links">
-                    <a href="product">Product</a>
-                    |
-                    <a href="customer">Customer</a>
-                    |
-                    <a href="transaction">Transaction</a>
-                </p>
+				<p class="footer-links">
+					<a href="#">Product</a>
+					|
+					<a href="#">Customer</a>
+					|
+					<a href="#">Transaction</a>
+				</p>
 
-                <p class="footer-company-name">© 2020 Akurapopo | Made with <span class='love'>💙</span></p>
+				<p class="footer-company-name">© 2019 Akurapopo's</p>
 			</div>
-
 			<div class="footer-center">
 				<div>
 					<i class="fa fa-map-marker"></i>
@@ -145,13 +144,13 @@
 					<span>About the company</span>
 					Akurapopo's menjual berbagai produk dengan harga murah, kualiatas terjamin dan pelayanan ramah.</p>
 				<div class="social-icons">
-                      <a class="social-icon social-icon--twitter" data-toggle="tooltip" title="Twitter">
+                      <a class="social-icon social-icon--twitter" data-toggle="tooltip" data-placement="bottom" title="Twitter">
                         <i class="fa fa-twitter"></i>
                       </a>
-                      <a class="social-icon social-icon--instagram" ata-toggle="tooltip" title="Instagram">
+                      <a class="social-icon social-icon--instagram" data-toggle="tooltip" data-placement="bottom" title="Instagram">
                         <i class="fa fa-instagram"></i>
                       </a>
-                      <a class="social-icon social-icon--facebook"ata-toggle="tooltip" title="Facebook">
+                      <a class="social-icon social-icon--facebook" data-toggle="tooltip" data-placement="bottom" title="Facebook">
                         <i class="fa fa-facebook"></i>
                       </a>
                 </div>
@@ -165,16 +164,17 @@
     <!-- Bootstrap core JavaScript -->
     <script src="{{asset('vendor/jquery/jquery-3.2.1.min.js')}}"></script>
     <script src="{{asset('vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="assets/js/jquery.js"></script> 
     <script src="assets/js/popper.js"></script> 
     <script src="assets/js/bootstrap.js"></script>
     <script>
-        $(function () {
-            $('[data-toggle="tooltip"]').tooltip();
-        });
-    </script>
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();   
+});
+</script>
 </body>
 
 </html>
