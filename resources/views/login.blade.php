@@ -15,6 +15,8 @@
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="{{asset('vendor/animate/animate.css')}}">
 <!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{asset('vendor/animate/animate.min.css')}}">
+<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="{{asset('vendor/css-hamburgers/hamburgers.min.css')}}">
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="{{asset('vendor/animsition/css/animsition.min.css')}}">
@@ -28,7 +30,7 @@
 <!--===============================================================================================-->
 </head>
 <body>
-
+	
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
@@ -52,7 +54,7 @@
 						<span class="focus-input100"></span>
 					</div>
 
-					<div class="container-login100-form-btn">
+					<div class="animated infinite pulse delay -2s">
 						<button class="login100-form-btn">
 							Login
 						</button>
