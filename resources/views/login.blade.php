@@ -11,6 +11,8 @@
     <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="vendor/font-awesome/css/font-awesome.min.css">
+
+    <link rel="stylesheet" type="text/css" href="vendor/animate/animate.min.css">
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="css/util.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
@@ -18,16 +20,16 @@
 </head>
 
 <body>
-
     <div class="limiter">
         <div class="container-login100">
-            <div class="wrap-login100">
+
+            <div class="wrap-login100 animated bounceIn fast">
                 @if(session('login'))
                 <div class="alert alert-danger" role="alert">
                     Username atau password yang anda masukkan kurang benar.
                 </div>
                 @endif
-                <div class="login100-form-title" style="background-image: url(images/bg-01.jpg);">
+                <div class="login100-form-title" style="background-image: url(images/bg-3.jpg);">
                     <span class="login100-form-title-1">
                         Halaman Masuk
                     </span>
@@ -46,16 +48,14 @@
                         <input class="input100" type="password" name="password" placeholder="Masukkan password">
                         <span class="focus-input100"></span>
                     </div>
+                    <button class="login100-form-btn">
+                        Login
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
 
-					<div class="animated infinite pulse delay -2s">
-						<button class="login100-form-btn">
-							Login
-						</button>
-					</div>
-				</form>
-			</div>
-		</div>
-	</div>
 
     <!--===============================================================================================-->
     <script src="vendor/jquery/jquery-3.4.1.min.js"></script>

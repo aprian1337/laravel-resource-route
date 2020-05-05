@@ -4,13 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Dashboard | Akurapopo's</title>
 
-    <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="css/custom.css">
+    <!-- SOURCES CSS -->
+    <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="vendor/font-awesome/css/font-awesome.css">
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/custom.css">
+
+    <!-- SOURCES JAVASCRIPT -->
+    <script src="vendor/jquery/jquery-3.4.1.min.js"></script>
+    <script src="vendor/bootstrap/js/popper.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
 </head>
 
 <body>
@@ -56,13 +61,14 @@
     </nav>
     <!-- END NAVBAR -->
 
+    <!-- START HEADER -->
     <header>
         <div class="container text-center">
             @if(session('login'))
-        <div class="alert alert-success" role="alert">
-            Selamat anda berhasil login, sebagai {{auth()->user()->name}}
-        </div>
-        @endif
+            <div class="alert alert-success" role="alert">
+                Selamat anda berhasil login, sebagai {{auth()->user()->name}}
+            </div>
+            @endif
             <div class="jumbotron" style="height: 400px; padding-top: 150px;">
                 <center>
                     <h2>W E L C O M E</h2>
@@ -71,8 +77,9 @@
             </div>
         </div>
     </header>
+    <!-- END HEADER -->
 
-    <!-- Footer -->
+    <!-- START FOOTER -->
     <footer class="page-footer font-small indigo">
 
         <!-- Footer Links -->
@@ -131,7 +138,7 @@
                     <a href="#">Transaction</a>
                 </p>
 
-                <p class="footer-company-name">© 2019 Akurapopo's</p>
+                <p class="footer-company-name">&copy; 2020 Akurapopo's</p>
             </div>
 
             <div class="footer-center">
@@ -172,7 +179,7 @@
         <!-- Copyright -->
 
     </footer>
-    <!-- Footer -->
+    <!-- END FOOTER -->
 
     <script>
         $(document).ready(function () {
