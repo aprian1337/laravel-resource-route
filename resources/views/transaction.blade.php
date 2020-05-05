@@ -43,11 +43,11 @@ active
 
 
 <!-- START MODAL FORM -->
-@section('modalForm')
+@section('modalFormInsert')
 
 <div class="form-group">
     <label for="message-text" class="col-form-label">Pembeli :</label>
-    <select name="kd_pembeli" id="modal-input-nama" class="form-control">
+    <select name="kd_pembeli" class="form-control">
         <option value="">Pilih..</option>
         @foreach($pembeli as $data)
             <option value="{{$data->kd_pembeli}}">{{$data->nm_pembeli}} - {{$data->kota}}</option>
@@ -56,7 +56,7 @@ active
 </div>
 <div class="form-group">
     <label for="message-text" class="col-form-label">Detail Barang :</label>
-    <select name="kd_brg" id="modal-input-nama" class="form-control">
+    <select name="kd_brg" class="form-control">
         <option value="">Pilih..</option>
         @foreach($barang as $data)
             <option value="{{$data->kd_brg}}">{{$data->nm_brg}} - {{$data->merk}}</option>
