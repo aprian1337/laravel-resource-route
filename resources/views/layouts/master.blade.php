@@ -7,18 +7,18 @@
     <title>@yield('type') | Akurapopo's</title>
 
     <!-- SCRIPT SOURCE -->
-    <script src="{{asset('/vendor/jquery/jquery-3.4.1.min.js')}}"></script>
+    <script src="vendor/jquery/jquery-3.4.1.min.js"></script>
     <script type="text/javascript" charset="utf8"
-        src="{{asset('vendor/data-table/DataTables-1.10.20/js/jquery.dataTables.min.js')}}"></script>
+        src="vendor/data-table/DataTables-1.10.20/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript" charset="utf8"
-        src="{{asset('vendor/data-table/DataTables-1.10.20/js/dataTables.bootstrap4.min.js')}}"></script>
-    <script src="{{asset('/vendor/bootstrap/js/popper.min.js')}}"></script>
-    <script src="{{asset('/vendor/bootstrap/js/bootstrap.min.js')}}"></script>
+        src="vendor/data-table/DataTables-1.10.20/js/dataTables.bootstrap4.min.js"></script>
+    <script src="vendor/bootstrap/js/popper.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
 
     <!-- CSS SOURCE -->
-    <link rel="stylesheet" href="{{asset('/vendor/bootstrap/css/bootstrap.css')}}">
-    <link rel="stylesheet" href="{{asset('vendor/data-table/DataTables-1.10.20/css/dataTables.bootstrap4.min.css')}}">
-    <link rel="stylesheet" href="{{asset('vendor/font-awesome/css/all.css')}}">
+    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="vendor/data-table/DataTables-1.10.20/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="vendor/font-awesome/css/all.css">
 </head>
 
 <body>

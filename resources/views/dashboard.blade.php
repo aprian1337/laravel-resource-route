@@ -124,6 +124,7 @@
 
 				<p class="footer-company-name">© 2019 Akurapopo's</p>
 			</div>
+
 			<div class="footer-center">
 				<div>
 					<i class="fa fa-map-marker"></i>
@@ -164,6 +165,8 @@
     <!-- Bootstrap core JavaScript -->
     <script src="{{asset('vendor/jquery/jquery-3.2.1.min.js')}}"></script>
     <script src="{{asset('vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
@@ -171,10 +174,10 @@
     <script src="assets/js/popper.js"></script> 
     <script src="assets/js/bootstrap.js"></script>
     <script>
-$(document).ready(function(){
-    $('[data-toggle="tooltip"]').tooltip();   
-});
-</script>
+        $(document).ready(function(){
+            $('[data-toggle="tooltip"]').tooltip();   
+            });
+    </script>
 </body>
 
 </html>
