@@ -8,6 +8,7 @@
     <link rel="stylesheet" type="text/css" href="{{asset('vendor/bootstrap/css/bootstrap.min.css')}}">
     <link rel="stylesheet" type="text/css" href="css/custom.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 </head>
 
 <body>
@@ -143,13 +144,17 @@
 				<p class="footer-company-about">
 					<span>About the company</span>
 					Akurapopo's menjual berbagai produk dengan harga murah, kualiatas terjamin dan pelayanan ramah.</p>
-				<div class="footer-icons">
-					<a href="#"><i class="fa fa-facebook"></i></a>
-					<a href="#"><i class="fa fa-twitter"></i></a>
-					<a href="#"><i class="fa fa-instagram"></i></a>
-					<a href="#"><i class="fa fa-linkedin"></i></a>
-					<a href="#"><i class="fa fa-youtube"></i></a>
-				</div>
+				<div class="social-icons">
+                      <a class="social-icon social-icon--twitter" data-toggle="tooltip" title="Twitter">
+                        <i class="fa fa-twitter"></i>
+                      </a>
+                      <a class="social-icon social-icon--instagram" ata-toggle="tooltip" title="Instagram">
+                        <i class="fa fa-instagram"></i>
+                      </a>
+                      <a class="social-icon social-icon--facebook"ata-toggle="tooltip" title="Facebook">
+                        <i class="fa fa-facebook"></i>
+                      </a>
+                </div>
 			</div>
 		</footer>
   <!-- Copyright -->
@@ -160,6 +165,16 @@
     <!-- Bootstrap core JavaScript -->
     <script src="{{asset('vendor/jquery/jquery-3.2.1.min.js')}}"></script>
     <script src="{{asset('vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="assets/js/jquery.js"></script> 
+    <script src="assets/js/popper.js"></script> 
+    <script src="assets/js/bootstrap.js"></script>
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+    </script>
 </body>
 
 </html>
