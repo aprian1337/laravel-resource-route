@@ -47,15 +47,15 @@
                         <span class="focus-input100"></span>
                     </div>
 
-                    <div class="container-login100-form-btn">
-                        <button class="login100-form-btn">
-                            Login
-                        </button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
+					<div class="animated infinite pulse delay -2s">
+						<button class="login100-form-btn">
+							Login
+						</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
 
     <!--===============================================================================================-->
     <script src="vendor/jquery/jquery-3.4.1.min.js"></script>
