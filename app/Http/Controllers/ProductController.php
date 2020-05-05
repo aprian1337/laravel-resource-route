@@ -70,7 +70,9 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $product =  barang::find($id);
+        $product->update($request->all());
+        return \redirect('/product')->with('success','<strong>Data berhasil diubah!</strong> Silakan anda cek data pada tabel di bawah ini.');
     }
 
     /**
@@ -81,6 +83,8 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $product = barang::find($id);
+        $product -> delete();
+        return \redirect('customer')->with('success','<strong>Data berhasil dihapus!</strong> Silakan anda cek data pada tabel di bawah ini.');
     }
 }

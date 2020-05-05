@@ -84,7 +84,7 @@ class CustomerController extends Controller
     public function destroy($id)
     {
         $pembeli = \App\pembeli::find($id);
-        $pembeli->delete($pembeli);
+        $pembeli->delete();
         return \redirect('customer')->with('success','<strong>Data berhasil dihapus!</strong> Silakan anda cek data pada tabel di bawah ini.');
     }
 }

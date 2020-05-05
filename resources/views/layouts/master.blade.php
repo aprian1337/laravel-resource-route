@@ -110,12 +110,12 @@
                 <div class="modal-body">
                     <form action="@yield('url')" method="POST">
                         @csrf
-                        @yield('modalForm')
+                        @yield('modalFormInsert')
                 </div>
 
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-                    <button type="submit" class="btn btn-primary">Tambah data</button>
+                    <button type="submit" class="btn btn-success">Tambah data</button>
                 </div>
             </form>
 
@@ -141,12 +141,12 @@
                         @csrf
                         @method('put')
 
-                        @yield('modalForm')
+                        @yield('modalFormEdit')
                 </div>
 
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-                    <button type="submit" class="btn btn-primary">Ubah sekarang</button>
+                    <button type="submit" class="btn btn-success">Ubah sekarang</button>
                 </div>
             </form>
 
