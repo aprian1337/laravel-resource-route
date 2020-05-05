@@ -60,11 +60,12 @@ active
 
 
 <!-- START MODAL FORM -->
-@section('modalForm')
 
+<!-- START INSERT FORM -->
+@section('modalFormInsert')
 <div class="form-group">
     <label for="recipient-name" class="col-form-label">Nama Pembeli :</label>
-    <input type="text" class="form-control" name="nm_pembeli" value="">
+    <input type="text" class="form-control" name="nm_pembeli">
 </div>
 <div class="form-group">
     <label for="message-text" class="col-form-label">Jenis Kelamin :</label>
@@ -82,9 +83,34 @@ active
     <label for="message-text" class="col-form-label">Kota :</label>
     <input type="text" name="kota" class="form-control">
 </div>
-
-
 @endsection
+<!-- END INSERT FORM -->
+
+<!-- START EDIT FORM -->
+@section('modalFormEdit')
+<div class="form-group">
+    <label for="recipient-name" class="col-form-label">Nama Pembeli :</label>
+    <input type="text" class="form-control" name="nm_pembeli" id="modal-input-nama">
+</div>
+<div class="form-group">
+    <label for="message-text" class="col-form-label">Jenis Kelamin :</label>
+    <select name="jenis_kelamin" class="form-control" id="modal-input-gender">
+        <option selected>Pilih..</option>
+        <option value="L">Laki-Laki</option>
+        <option value="P">Perempuan</option>
+    </select>
+</div>
+<div class="form-group">
+    <label for="message-text" class="col-form-label">Alamat :</label>
+    <textarea type="text" name="alamat" class="form-control" rows="2" id="modal-input-alamat"></textarea>
+</div>
+<div class="form-group">
+    <label for="message-text" class="col-form-label">Kota :</label>
+    <input type="text" name="kota" class="form-control" id="modal-input-kota">
+</div>
+@endsection
+<!-- END INSERT FORM -->
+
 <!-- END MODAL FORM -->
 
 
