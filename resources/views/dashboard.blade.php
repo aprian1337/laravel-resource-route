@@ -77,8 +77,7 @@
                 </center>
             </div>
         </div>
-
-    </header>
+</header>
     <!-- END HEADER -->
 
     <!-- START FOOTER -->
