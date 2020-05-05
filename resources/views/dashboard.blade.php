@@ -57,7 +57,6 @@
     <div class="jumbotron" style="height: 400px; padding-top: 150px;">
             <center>
                 <h2>W E L C O M E</h2>
-                <h3>{{auth()->user()->name}}</h3>
             </center>
          </div>
      </div>
