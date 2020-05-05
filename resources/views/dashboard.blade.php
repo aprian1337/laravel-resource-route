@@ -7,6 +7,7 @@
     <title>Document</title>
     <link rel="stylesheet" type="text/css" href="{{asset('vendor/bootstrap/css/bootstrap.min.css')}}">
     <link rel="stylesheet" type="text/css" href="css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
@@ -72,25 +73,6 @@
     <div class="row text-center d-flex justify-content-center pt-5 mb-3">
 
       <!-- Grid column -->
-      <div class="col-md-2 mb-3">
-        <h6 class="text-uppercase font-weight-bold">
-          <a href="#!">About us</a>
-        </h6>
-      </div>
-      <!-- Grid column -->
-
-      <!-- Grid column -->
-      <div class="col-md-2 mb-3">
-        <h6 class="text-uppercase font-weight-bold">
-          <a href="#!">Products</a>
-        </h6>
-      </div>
-      <!-- Grid column -->
-      <div class="col-md-2 mb-3">
-        <h6 class="text-uppercase font-weight-bold">
-          <a href="#!">Help</a>
-        </h6>
-      </div>
       <!-- Grid column -->
     </div>
     <!-- Grid row-->
@@ -100,10 +82,7 @@
     <div class="row d-flex text-center justify-content-center mb-md-0 mb-4">
 
       <!-- Grid column -->
-      <div class="col-md-8 col-12 mt-5">
-        <p style="line-height: 1.7rem">Akurapopo's menjual berbagai produk dengan harga murah, kualiatas terjamin
-        dan pelayanan ramah. </p>
-      </div>
+
       <!-- Grid column -->
 
     </div>
@@ -130,8 +109,50 @@
   <!-- Footer Links -->
 
   <!-- Copyright -->
-  <div class="footer-copyright text-center py-3">© 2020 Copyright: Akurapopo's
-  </div>
+ <footer class="footer-distributed">
+
+			<div class="footer-left">
+				<h3>Aku<span>Rapopo</span></h3>
+
+				<p class="footer-links">
+					<a href="#">Product</a>
+					|
+					<a href="#">Customer</a>
+					|
+					<a href="#">Transaction</a>
+				</p>
+
+				<p class="footer-company-name">© 2019 Akurapopo</p>
+			</div>
+
+			<div class="footer-center">
+				<div>
+					<i class="fa fa-map-marker"></i>
+					  <p>Kota Malang</p>
+				</div>
+
+				<div>
+					<i class="fa fa-phone"></i>
+					<p>+62 857-1209-2239</p>
+				</div>
+				<div>
+					<i class="fa fa-envelope"></i>
+					<p><a href="#">support@akurapopo.com</a></p>
+				</div>
+			</div>
+			<div class="footer-right">
+				<p class="footer-company-about">
+					<span>About the company</span>
+					Akurapopo's menjual berbagai produk dengan harga murah, kualiatas terjamin dan pelayanan ramah.</p>
+				<div class="footer-icons">
+					<a href="#"><i class="fa fa-facebook"></i></a>
+					<a href="#"><i class="fa fa-twitter"></i></a>
+					<a href="#"><i class="fa fa-instagram"></i></a>
+					<a href="#"><i class="fa fa-linkedin"></i></a>
+					<a href="#"><i class="fa fa-youtube"></i></a>
+				</div>
+			</div>
+		</footer>
   <!-- Copyright -->
 
 </footer>
