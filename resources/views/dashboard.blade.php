@@ -113,15 +113,15 @@
 			<div class="footer-left">
 				<h3>Aku<span>Rapopo</span></h3>
 
-				<p class="footer-links">
-					<a href="#">Product</a>
-					|
-					<a href="#">Customer</a>
-					|
-					<a href="#">Transaction</a>
-				</p>
+                <p class="footer-links">
+                    <a href="product">Product</a>
+                    |
+                    <a href="customer">Customer</a>
+                    |
+                    <a href="transaction">Transaction</a>
+                </p>
 
-				<p class="footer-company-name">© 2019 Akurapopo</p>
+                <p class="footer-company-name">© 2020 Akurapopo | Made with <span class='love'>💙</span></p>
 			</div>
 
 			<div class="footer-center">
