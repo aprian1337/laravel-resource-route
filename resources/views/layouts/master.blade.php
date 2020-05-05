@@ -14,13 +14,14 @@
         src="vendor/data-table/DataTables-1.10.20/js/dataTables.bootstrap4.min.js"></script>
     <script src="vendor/bootstrap/js/popper.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
 
     <!-- CSS SOURCE -->
+    <link rel="stylesheet" href="vendor/perfect-scrollbar/perfect-scrollbar.css">
     <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="vendor/data-table/DataTables-1.10.20/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="vendor/font-awesome/css/all.css">
 </head>
-
 <body>
 
     <!-- Navigation -->
