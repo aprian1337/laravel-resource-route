@@ -141,23 +141,6 @@ footer{
 	font-weight: bold;
 	margin-bottom: 20px;
 }
-
-/* Social Icon Mixin */
-@mixin social-icon($color) {
-  background: $color;
-  color: #fff;
-
-  .tooltip {
-    background: $color;
-    color: currentColor;
-
-    &:after {
-      border-top-color: $color;
-    }
-  }
-}
-
-/* Social Icons */
 .social-icons {
   display: flex;
 }
@@ -176,23 +159,5 @@ footer{
   font-size: 2.5rem;
   text-decoration: none;
   transition: all 0.15s ease;
-
-  &:hover {
-    color: #fff;
-
-    .tooltip {
-      visibility: visible;
-      opacity: 1;
-      transform: translate(-50%, -150%);
-    }
-  }
-    
-  &:active {
-    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.5) inset;
-  }
-  
-  i {
-    position: relative;
-    top: 1px;
-  }
 }
+

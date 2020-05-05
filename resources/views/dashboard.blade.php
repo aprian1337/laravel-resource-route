@@ -53,6 +53,7 @@
                             <span class="dropdown-header">Hi, {{auth()->user()->name}}</span>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item small" href="logout">Logout</a>
+
                         </div>
                     </li>
                 </ul>
@@ -76,6 +77,7 @@
                 </center>
             </div>
         </div>
+
     </header>
     <!-- END HEADER -->
 
@@ -161,17 +163,15 @@
                     <span>About the company</span>
                     Akurapopo's menjual berbagai produk dengan harga murah, kualiatas terjamin dan pelayanan ramah.</p>
                 <div class="social-icons">
-                    <a class="social-icon social-icon--twitter" data-toggle="tooltip" data-placement="bottom"
-                        title="Twitter">
+                    <a class="social-icon social-icon--twitter" data-toggle="tooltip" data-placement="bottom" title="Twitter">
                         <i class="fa fa-twitter"></i>
                     </a>
-                    <a class="social-icon social-icon--instagram" data-toggle="tooltip" data-placement="bottom"
-                        title="Instagram">
+                    <a class="social-icon social-icon--instagram" data-toggle="tooltip" data-placement="bottom" title="Instagram">
                         <i class="fa fa-instagram"></i>
                     </a>
-                    <a class="social-icon social-icon--facebook" data-toggle="tooltip" data-placement="bottom"
-                        title="Facebook">
+                    <a class="social-icon social-icon--facebook" data-toggle="tooltip" data-placement="bottom" title="Facebook">
                         <i class="fa fa-facebook"></i>
+
                     </a>
                 </div>
             </div>
