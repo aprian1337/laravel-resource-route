@@ -15,7 +15,7 @@
 
 <body>
 
-    <!-- Navigation -->
+    <!-- START NAVBAR -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
         <div class="container">
             <a class="navbar-brand" href="#">Akurapopo's</a>
@@ -54,13 +54,21 @@
             </div>
         </div>
     </nav>
-    <header <div class="container text-center">
-        <p></p>
-        <div class="jumbotron" style="height: 400px; padding-top: 150px;">
-            <center>
-                <h2>W E L C O M E</h2>
-            </center>
+    <!-- END NAVBAR -->
+
+    <header>
+        <div class="container text-center">
+            @if(session('login'))
+        <div class="alert alert-success" role="alert">
+            Selamat anda berhasil login, sebagai {{auth()->user()->name}}
         </div>
+        @endif
+            <div class="jumbotron" style="height: 400px; padding-top: 150px;">
+                <center>
+                    <h2>W E L C O M E</h2>
+                    {{auth()->user()->name}}
+                </center>
+            </div>
         </div>
     </header>
 
