@@ -240,11 +240,11 @@
                 <h3>Aku<span>Rapopo's</span></h3>
 
                 <p class="footer-links">
-                    <a href="#">Product</a>
+                    <a href="/product">Product</a>
                     |
-                    <a href="#">Customer</a>
+                    <a href="/customer">Customer</a>
                     |
-                    <a href="#">Transaction</a>
+                    <a href="/transaction">Transaction</a>
                 </p>
 
                 <p class="footer-company-name">&copy; 2020 Akurapopo's</p>
