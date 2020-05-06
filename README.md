@@ -10,7 +10,7 @@ Our team :
 
 -------------------
 
-Import DATABASE.sql into a local database with the db name 'kegiatan2'
+Import DATABASE.sql into a local database with the db name 'kegiatan2'<br>
 Default user login = admin:admin
 
 
